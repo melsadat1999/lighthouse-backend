@@ -18,7 +18,12 @@ export class ProjectsService {
   }
 
   async findAll() {
-    return await this.projectRepository.find({ relations: ['reports'] });
+    return await this.projectRepository.find({
+      relations: ['reports'],
+      order: {
+        created_at: 'DESC',
+      },
+    });
   }
 
   async findOne(id: number) {

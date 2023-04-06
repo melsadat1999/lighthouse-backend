@@ -20,4 +20,11 @@ export class ReportsService {
       relations: ['project'],
     });
   }
+
+  async findReportProjectId(projectId: number) {
+    return await this.reportRepository.find({
+      where: { project: { id: projectId } },
+      relations: ['project'],
+    });
+  }
 }

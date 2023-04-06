@@ -1,5 +1,5 @@
 import { Optional } from '@nestjs/common';
-import { IsString, IsNotEmpty, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, IsUrl } from 'class-validator';
 
 export class CreateProjectDto {
   @Optional()
@@ -8,7 +8,6 @@ export class CreateProjectDto {
   @IsString()
   @IsNotEmpty()
   projectName: string;
-
 
   @IsString()
   @IsNotEmpty()
@@ -21,4 +20,8 @@ export class CreateProjectDto {
   @IsString()
   @IsNotEmpty()
   frontend: string;
+
+  @IsUrl()
+  @IsNotEmpty()
+  url: string;
 }
